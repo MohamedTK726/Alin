@@ -57,7 +57,7 @@ setInterval(() => store.writeToFile(), settings.storeWriteInterval || 10000)
 setInterval(() => {
     if (global.gc) {
         global.gc()
-        console.log('🧹 Garbage collection completed')
+        console.log('🧹 اكتمل تنظيف الذاكرة')
     }
 }, 60_000) // every 1 minute
 
@@ -65,7 +65,7 @@ setInterval(() => {
 setInterval(() => {
     const used = process.memoryUsage().rss / 1024 / 1024
     if (used > 400) {
-        console.log('⚠️ RAM too high (>400MB), restarting bot...')
+        console.log('⚠️ الذاكرة مرتفعة (>400MB)، جارٍ إعادة تشغيل البوت...')
         process.exit(1) // Panel will auto-restart
     }
 }, 30_000) // check every 30 seconds
@@ -73,7 +73,7 @@ setInterval(() => {
 let phoneNumber = "911234567890"
 let owner = JSON.parse(fs.readFileSync('./data/owner.json'))
 
-global.botname = "KNIGHT BOT"
+global.botname = "Alin Bot"
 global.themeemoji = "•"
 const pairingCode = !!phoneNumber || process.argv.includes("--pairing-code")
 const useMobile = process.argv.includes("--mobile")
@@ -155,7 +155,7 @@ async function startXeonBotInc() {
                 // Only try to send error message if we have a valid chatId
                 if (mek.key && mek.key.remoteJid) {
                     await XeonBotInc.sendMessage(mek.key.remoteJid, {
-                        text: '❌ An error occurred while processing your message.',
+                        text: '❌ حدث خطأ أثناء معالجة رسالتك.',
                         contextInfo: {
                             forwardingScore: 1,
                             isForwarded: true,
@@ -213,13 +213,13 @@ async function startXeonBotInc() {
 
     // Handle pairing code
     if (pairingCode && !XeonBotInc.authState.creds.registered) {
-        if (useMobile) throw new Error('Cannot use pairing code with mobile api')
+        if (useMobile) throw new Error('لا يمكن استخدام رمز الربط مع واجهة الهاتف المحمول')
 
         let phoneNumber
         if (!!global.phoneNumber) {
             phoneNumber = global.phoneNumber
         } else {
-            phoneNumber = await question(chalk.bgBlack(chalk.greenBright(`Please type your WhatsApp number 😍\nFormat: 6281376552730 (without + or spaces) : `)))
+            phoneNumber = await question(chalk.bgBlack(chalk.greenBright(`يرجى إدخال رقم واتساب الخاص بك 😍\nالصيغة: 6281376552730 (بدون + أو مسافات) : `)))
         }
 
         // Clean the phone number - remove any non-digit characters
@@ -228,7 +228,7 @@ async function startXeonBotInc() {
         // Validate the phone number using awesome-phonenumber
         const pn = require('awesome-phonenumber');
         if (!pn('+' + phoneNumber).isValid()) {
-            console.log(chalk.red('Invalid phone number. Please enter your full international number (e.g., 15551234567 for US, 447911123456 for UK, etc.) without + or spaces.'));
+            console.log(chalk.red('رقم الهاتف غير صالح. يرجى إدخال رقم دولي كامل (مثل 15551234567 للولايات المتحدة أو 447911123456 لبريطانيا) بدون علامة + أو مسافات.'));
             process.exit(1);
         }
 
@@ -236,11 +236,11 @@ async function startXeonBotInc() {
             try {
                 let code = await XeonBotInc.requestPairingCode(phoneNumber)
                 code = code?.match(/.{1,4}/g)?.join("-") || code
-                console.log(chalk.black(chalk.bgGreen(`Your Pairing Code : `)), chalk.black(chalk.white(code)))
-                console.log(chalk.yellow(`\nPlease enter this code in your WhatsApp app:\n1. Open WhatsApp\n2. Go to Settings > Linked Devices\n3. Tap "Link a Device"\n4. Enter the code shown above`))
+                console.log(chalk.black(chalk.bgGreen(`رمز الربط الخاص بك : `)), chalk.black(chalk.white(code)))
+                console.log(chalk.yellow(`\nيرجى إدخال هذا الرمز داخل تطبيق واتساب:\n1. افتح واتساب\n2. اذهب إلى الإعدادات > الأجهزة المتصلة\n3. اضغط على "ربط جهاز"\n4. أدخل الرمز المعروض أعلاه`))
             } catch (error) {
                 console.error('Error requesting pairing code:', error)
-                console.log(chalk.red('Failed to get pairing code. Please check your phone number and try again.'))
+                console.log(chalk.red('فشل الحصول على رمز الربط. يرجى التحقق من رقم الهاتف والمحاولة مرة أخرى.'))
             }
         }, 3000)
     }
@@ -250,21 +250,21 @@ async function startXeonBotInc() {
         const { connection, lastDisconnect, qr } = s
         
         if (qr) {
-            console.log(chalk.yellow('📱 QR Code generated. Please scan with WhatsApp.'))
+            console.log(chalk.yellow('📱 تم إنشاء رمز QR. يرجى مسحه عبر واتساب.'))
         }
         
         if (connection === 'connecting') {
-            console.log(chalk.yellow('🔄 Connecting to WhatsApp...'))
+            console.log(chalk.yellow('🔄 جارٍ الاتصال بـ واتساب...'))
         }
         
         if (connection == "open") {
             console.log(chalk.magenta(` `))
-            console.log(chalk.yellow(`🌿Connected to => ` + JSON.stringify(XeonBotInc.user, null, 2)))
+            console.log(chalk.yellow(`🌿تم الاتصال بـ => ` + JSON.stringify(XeonBotInc.user, null, 2)))
 
             try {
                 const botNumber = XeonBotInc.user.id.split(':')[0] + '@s.whatsapp.net';
                 await XeonBotInc.sendMessage(botNumber, {
-                    text: `🤖 Bot Connected Successfully!\n\n⏰ Time: ${new Date().toLocaleString()}\n✅ Status: Online and Ready!\n\n✅Make sure to join below channel`,
+                    text: `🤖 تم توصيل البوت بنجاح!\n\n⏰ الوقت: ${new Date().toLocaleString()}\n✅ الحالة: متصل وجاهز!\n\n✅ تأكد من الانضمام إلى القناة أدناه`,
                     contextInfo: {
                         forwardingScore: 1,
                         isForwarded: true,
@@ -282,32 +282,32 @@ async function startXeonBotInc() {
             await delay(1999)
             console.log(chalk.yellow(`\n\n                  ${chalk.bold.blue(`[ ${global.botname || 'KNIGHT BOT'} ]`)}\n\n`))
             console.log(chalk.cyan(`< ================================================== >`))
-            console.log(chalk.magenta(`\n${global.themeemoji || '•'} YT CHANNEL: MR UNIQUE HACKER`))
-            console.log(chalk.magenta(`${global.themeemoji || '•'} GITHUB: mrunqiuehacker`))
-            console.log(chalk.magenta(`${global.themeemoji || '•'} WA NUMBER: ${owner}`))
-            console.log(chalk.magenta(`${global.themeemoji || '•'} CREDIT: MR UNIQUE HACKER`))
-            console.log(chalk.green(`${global.themeemoji || '•'} 🤖 Bot Connected Successfully! ✅`))
-            console.log(chalk.blue(`Bot Version: ${settings.version}`))
+            console.log(chalk.magenta(`\n${global.themeemoji || '•'} قناة اليوتيوب: MR UNIQUE HACKER`))
+            console.log(chalk.magenta(`${global.themeemoji || '•'} جيتهاب: mrunqiuehacker`))
+            console.log(chalk.magenta(`${global.themeemoji || '•'} رقم واتساب: ${owner}`))
+            console.log(chalk.magenta(`${global.themeemoji || '•'} الرصيد: MR UNIQUE HACKER`))
+            console.log(chalk.green(`${global.themeemoji || '•'} 🤖 تم توصيل البوت بنجاح! ✅`))
+            console.log(chalk.blue(`إصدار البوت: ${settings.version}`))
         }
         
         if (connection === 'close') {
             const shouldReconnect = (lastDisconnect?.error)?.output?.statusCode !== DisconnectReason.loggedOut
             const statusCode = lastDisconnect?.error?.output?.statusCode
             
-            console.log(chalk.red(`Connection closed due to ${lastDisconnect?.error}, reconnecting ${shouldReconnect}`))
+            console.log(chalk.red(`تم إغلاق الاتصال بسبب ${lastDisconnect?.error}، إعادة الاتصال ${shouldReconnect}`))
             
             if (statusCode === DisconnectReason.loggedOut || statusCode === 401) {
                 try {
                     rmSync('./session', { recursive: true, force: true })
-                    console.log(chalk.yellow('Session folder deleted. Please re-authenticate.'))
+                    console.log(chalk.yellow('تم حذف مجلد الجلسة. يرجى إعادة المصادقة.'))
                 } catch (error) {
                     console.error('Error deleting session:', error)
                 }
-                console.log(chalk.red('Session logged out. Please re-authenticate.'))
+                console.log(chalk.red('تم تسجيل الخروج من الجلسة. يرجى إعادة المصادقة.'))
             }
             
             if (shouldReconnect) {
-                console.log(chalk.yellow('Reconnecting...'))
+                console.log(chalk.yellow('جارٍ إعادة الاتصال...'))
                 await delay(5000)
                 startXeonBotInc()
             }
@@ -340,7 +340,7 @@ async function startXeonBotInc() {
                     if (!antiCallNotified.has(callerJid)) {
                         antiCallNotified.add(callerJid);
                         setTimeout(() => antiCallNotified.delete(callerJid), 60000);
-                        await XeonBotInc.sendMessage(callerJid, { text: '📵 Anticall is enabled. Your call was rejected and you will be blocked.' });
+                        await XeonBotInc.sendMessage(callerJid, { text: '📵 تم تفعيل خاصية منع المكالمات. تم رفض مكالمتك وسيتم حظرك.' });
                     }
                 } catch {}
                 // Then: block after a short delay to ensure rejection and message are processed
