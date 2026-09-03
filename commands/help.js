@@ -6,16 +6,16 @@ async function helpCommand(sock, chatId, message) {
     const helpMessage = `
 ╔═══════════════════╗
     *🤖 ${settings.botName || 'AlinBot'}*
-   Version: *${settings.version || '3.0.0'}*
-   by ${settings.botOwner || 'Mr Unique Hacker'}
+   الإصدار: *${settings.version || '3.0.0'}*
+   المطوّر: ${settings.botOwner || 'Mr Unique Hacker'}
    YT : ${global.ytch}
 ╚═══════════════════╝
 
-*Available Commands:*
+*الأوامر المتاحة:*
 
 ╔═══════════════════╗
-🌐 *General Commands*:
-║ ➤ .help or .menu
+🌐 *الأوامر العامة*:
+║ ➤ .help أو .menu
 ║ ➤ .ping
 ║ ➤ .alive
 ║ ➤ .tts <text>
@@ -29,7 +29,7 @@ async function helpCommand(sock, chatId, message) {
 ║ ➤ .lyrics <song_title>
 ║ ➤ .8ball <question>
 ║ ➤ .groupinfo
-║ ➤ .staff or .admins 
+║ ➤ .staff أو .admins
 ║ ➤ .vv
 ║ ➤ .trt <text> <lang>
 ║ ➤ .ss <link>
@@ -38,13 +38,13 @@ async function helpCommand(sock, chatId, message) {
 ╚═══════════════════╝ 
 
 ╔═══════════════════╗
-👮‍♂️ *Admin Commands*:
+👮‍♂️ *أوامر المشرفين*:
 ║ ➤ .ban @user
 ║ ➤ .promote @user
 ║ ➤ .demote @user
 ║ ➤ .mute <minutes>
 ║ ➤ .unmute
-║ ➤ .delete or .del
+║ ➤ .delete أو .del
 ║ ➤ .kick @user
 ║ ➤ .warnings @user
 ║ ➤ .warn @user
@@ -62,18 +62,18 @@ async function helpCommand(sock, chatId, message) {
 ║ ➤ .goodbye <on/off>
 ║ ➤ .setgdesc <description>
 ║ ➤ .setgname <new name>
-║ ➤ .setgpp (reply to image)
+║ ➤ .setgpp (بالرد على صورة)
 ╚═══════════════════╝
 
 ╔═══════════════════╗
-🔒 *Owner Commands*:
+🔒 *أوامر المالك*:
 ║ ➤ .mode <public/private>
 ║ ➤ .clearsession
 ║ ➤ .antidelete
 ║ ➤ .cleartmp
 ║ ➤ .update
 ║ ➤ .settings
-║ ➤ .setpp <reply to image>
+║ ➤ .setpp <بالرد على صورة>
 ║ ➤ .autoreact <on/off>
 ║ ➤ .autostatus <on/off>
 ║ ➤ .autostatus react <on/off>
@@ -82,14 +82,14 @@ async function helpCommand(sock, chatId, message) {
 ║ ➤ .anticall <on/off>
 ║ ➤ .pmblocker <on/off/status>
 ║ ➤ .pmblocker setmsg <text>
-║ ➤ .setmention <reply to msg>
+║ ➤ .setmention <بالرد على رسالة>
 ║ ➤ .mention <on/off>
 ╚═══════════════════╝
 
 ╔═══════════════════╗
-🎨 *Image/Sticker Commands*:
+🎨 *أوامر الصور والملصقات*:
 ║ ➤ .blur <image>
-║ ➤ .simage <reply to sticker>
+║ ➤ .simage <بالرد على ملصق>
 ║ ➤ .sticker <reply to image>
 ║ ➤ .removebg
 ║ ➤ .remini
@@ -103,7 +103,7 @@ async function helpCommand(sock, chatId, message) {
 ╚═══════════════════╝  
 
 ╔═══════════════════╗
-🖼️ *Pies Commands*:
+🖼️ *أوامر الصور*:
 ║ ➤ .pies <country>
 ║ ➤ .china 
 ║ ➤ .indonesia 
@@ -113,7 +113,7 @@ async function helpCommand(sock, chatId, message) {
 ╚═══════════════════╝
 
 ╔═══════════════════╗
-🎮 *Game Commands*:
+🎮 *أوامر الألعاب*:
 ║ ➤ .tictactoe @user
 ║ ➤ .hangman
 ║ ➤ .guess <letter>
@@ -124,7 +124,7 @@ async function helpCommand(sock, chatId, message) {
 ╚═══════════════════╝
 
 ╔═══════════════════╗
-🤖 *AI Commands*:
+🤖 *أوامر الذكاء الاصطناعي*:
 ║ ➤ .gpt <question>
 ║ ➤ .gemini <question>
 ║ ➤ .imagine <prompt>
@@ -133,7 +133,7 @@ async function helpCommand(sock, chatId, message) {
 ╚═══════════════════╝
 
 ╔═══════════════════╗
-🎯 *Fun Commands*:
+🎯 *أوامر الترفيه*:
 ║ ➤ .compliment @user
 ║ ➤ .insult @user
 ║ ➤ .flirt 
@@ -148,7 +148,7 @@ async function helpCommand(sock, chatId, message) {
 ╚═══════════════════╝
 
 ╔═══════════════════╗
-🔤 *Textmaker*:
+🔤 *أوامر إنشاء النصوص*:
 ║ ➤ .metallic <text>
 ║ ➤ .ice <text>
 ║ ➤ .snow <text>
@@ -170,7 +170,7 @@ async function helpCommand(sock, chatId, message) {
 ╚═══════════════════╝
 
 ╔═══════════════════╗
-📥 *Downloader*:
+📥 *أوامر التحميل*:
 ║ ➤ .play <song_name>
 ║ ➤ .song <song_name>
 ║ ➤ .spotify <query>
@@ -182,7 +182,7 @@ async function helpCommand(sock, chatId, message) {
 ╚═══════════════════╝
 
 ╔═══════════════════╗
-🧩 *MISC*:
+🧩 *أوامر متنوعة*:
 ║ ➤ .heart
 ║ ➤ .horny
 ║ ➤ .circle
@@ -202,7 +202,7 @@ async function helpCommand(sock, chatId, message) {
 ╚═══════════════════╝
 
 ╔═══════════════════╗
-🖼️ *ANIME*:
+🖼️ *أوامر الأنمي*:
 ║ ➤ .nom 
 ║ ➤ .poke 
 ║ ➤ .cry 
@@ -214,7 +214,7 @@ async function helpCommand(sock, chatId, message) {
 ╚═══════════════════╝
 
 ╔═══════════════════╗
-💻 *Github Commands:*
+💻 *أوامر GitHub:*
 ║ ➤ .git
 ║ ➤ .github
 ║ ➤ .sc
@@ -222,7 +222,7 @@ async function helpCommand(sock, chatId, message) {
 ║ ➤ .repo
 ╚═══════════════════╝
 
-Join our channel for updates:`;
+انضم إلى قناتنا لمعرفة آخر التحديثات:`;
 
     try {
         const imagePath = path.join(__dirname, '../assets/bot_image.jpg');
