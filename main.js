@@ -260,14 +260,14 @@ async function handleMessages(sock, messageUpdate, printLog) {
             return;
         }
 
-        /*  // Basic message response in private chat
-          if (!isGroup && (userMessage === 'hi' || userMessage === 'hello' || userMessage === 'bot' || userMessage === 'hlo' || userMessage === 'hey' || userMessage === 'bro')) {
+          // Basic message response in private chat
+          if (!isGroup && (userMessage === 'هاي' || userMessage === 'اهلا' || userMessage === 'بوت' || userMessage === 'الين' || userMessage === 'أهلا' || userMessage === 'السلام عليكم')) {
               await sock.sendMessage(chatId, {
                   text: 'مرحبًا، كيف يمكنني مساعدتك؟\nيمكنك استخدام .menu لمزيد من المعلومات والأوامر.',
                   ...channelInfo
               });
               return;
-          } */
+          }
 
         if (!message.key.fromMe) incrementMessageCount(chatId, senderId);
 
