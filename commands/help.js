@@ -15,89 +15,89 @@ async function helpCommand(sock, chatId, message) {
 
 ╔═══════════════════╗
 🌐 *الأوامر العامة*:
-║ ➤ .help أو .menu
-║ ➤ .ping
-║ ➤ .alive
-║ ➤ .tts <text>
-║ ➤ .owner
-║ ➤ .joke
-║ ➤ .quote
-║ ➤ .fact
-║ ➤ .weather <city>
-║ ➤ .news
-║ ➤ .attp <text>
-║ ➤ .lyrics <song_title>
-║ ➤ .8ball <question>
-║ ➤ .groupinfo
-║ ➤ .staff أو .admins
+║ ➤ .مساعدة أو .قائمة
+║ ➤ .بنج
+║ ➤ .حي
+║ ➤ .صوت <النص>
+║ ➤ .المالك
+║ ➤ .نكتة
+║ ➤ .اقتباس
+║ ➤ .حقيقة
+║ ➤ .طقس <المدينة>
+║ ➤ .أخبار
+║ ➤ .attp <النص>
+║ ➤ .كلمات <اسم_الأغنية>
+║ ➤ .8ball <السؤال>
+║ ➤ .معلومات_المجموعة
+║ ➤ .المشرفون أو .admins
 ║ ➤ .vv
-║ ➤ .trt <text> <lang>
-║ ➤ .ss <link>
-║ ➤ .jid
-║ ➤ .url
+║ ➤ .ترجمة <النص> <اللغة>
+║ ➤ .لقطة <الرابط>
+║ ➤ .معرف
+║ ➤ .رابط
 ╚═══════════════════╝ 
 
 ╔═══════════════════╗
 👮‍♂️ *أوامر المشرفين*:
-║ ➤ .ban @user
-║ ➤ .promote @user
-║ ➤ .demote @user
-║ ➤ .mute <minutes>
-║ ➤ .unmute
-║ ➤ .delete أو .del
-║ ➤ .kick @user
-║ ➤ .warnings @user
-║ ➤ .warn @user
-║ ➤ .antilink
-║ ➤ .antibadword
-║ ➤ .clear
-║ ➤ .tag <message>
-║ ➤ .tagall
-║ ➤ .tagnotadmin
-║ ➤ .hidetag <message>
-║ ➤ .chatbot
-║ ➤ .resetlink
-║ ➤ .antitag <on/off>
-║ ➤ .welcome <on/off>
-║ ➤ .goodbye <on/off>
-║ ➤ .setgdesc <description>
-║ ➤ .setgname <new name>
-║ ➤ .setgpp (بالرد على صورة)
+║ ➤ .حظر @مستخدم
+║ ➤ .ترقية @مستخدم
+║ ➤ .خفض @مستخدم
+║ ➤ .كتم <بالدقائق>
+║ ➤ .الغاء_الكتم
+║ ➤ .حذف أو .del
+║ ➤ .طرد @مستخدم
+║ ➤ .التحذيرات @مستخدم
+║ ➤ .تحذير @مستخدم
+║ ➤ .منع_الروابط
+║ ➤ .منع_الكلمات
+║ ➤ .مسح
+║ ➤ .tag <رسالة>
+║ ➤ .اشارة_للجميع
+║ ➤ .اشارة_لغير_المشرفين
+║ ➤ .اشارة_مخفية <رسالة>
+║ ➤ .روبوت_الدردشة
+║ ➤ .اعادة_الرابط
+║ ➤ .منع_الاشارة <تشغيل/إيقاف>
+║ ➤ .ترحيب <تشغيل/إيقاف>
+║ ➤ .وداع <تشغيل/إيقاف>
+║ ➤ .وصف_المجموعة <الوصف>
+║ ➤ .اسم_المجموعة <الاسم_الجديد>
+║ ➤ .صورة_المجموعة (بالرد على صورة)
 ╚═══════════════════╝
 
 ╔═══════════════════╗
 🔒 *أوامر المالك*:
-║ ➤ .mode <public/private>
-║ ➤ .clearsession
-║ ➤ .antidelete
-║ ➤ .cleartmp
-║ ➤ .update
-║ ➤ .settings
-║ ➤ .setpp <بالرد على صورة>
-║ ➤ .autoreact <on/off>
-║ ➤ .autostatus <on/off>
-║ ➤ .autostatus react <on/off>
-║ ➤ .autotyping <on/off>
-║ ➤ .autoread <on/off>
-║ ➤ .anticall <on/off>
-║ ➤ .pmblocker <on/off/status>
-║ ➤ .pmblocker setmsg <text>
+║ ➤ .الوضع <عام/خاص>
+║ ➤ .مسح_الجلسة
+║ ➤ .منع_الحذف
+║ ➤ .مسح_المؤقت
+║ ➤ .تحديث
+║ ➤ .الاعدادات
+║ ➤ .الصورة_الشخصية <بالرد على صورة>
+║ ➤ .تفاعل_تلقائي <تشغيل/إيقاف>
+║ ➤ .حالة_تلقائية <تشغيل/إيقاف>
+║ ➤ .حالة_تلقائية تفاعل <تشغيل/إيقاف>
+║ ➤ .كتابة_تلقائية <تشغيل/إيقاف>
+║ ➤ .قراءة_تلقائية <تشغيل/إيقاف>
+║ ➤ .منع_المكالمات <تشغيل/إيقاف>
+║ ➤ .حظر_الخاص <تشغيل/إيقاف/الحالة>
+║ ➤ .حظر_الخاص setmsg <النص>
 ║ ➤ .setmention <بالرد على رسالة>
-║ ➤ .mention <on/off>
+║ ➤ .mention <تشغيل/إيقاف>
 ╚═══════════════════╝
 
 ╔═══════════════════╗
 🎨 *أوامر الصور والملصقات*:
 ║ ➤ .blur <image>
-║ ➤ .simage <بالرد على ملصق>
-║ ➤ .sticker <reply to image>
-║ ➤ .removebg
-║ ➤ .remini
-║ ➤ .crop <reply to image>
-║ ➤ .tgsticker <Link>
-║ ➤ .meme
-║ ➤ .take <packname> 
-║ ➤ .emojimix <emj1>+<emj2>
+║ ➤ .تحويل_ملصق <بالرد على ملصق>
+║ ➤ .ملصق <بالرد على صورة>
+║ ➤ .ازالة_الخلفية
+║ ➤ .تحسين
+║ ➤ .قص <بالرد على صورة>
+║ ➤ .ملصق_تيليجرام <الرابط>
+║ ➤ .ميم
+║ ➤ .take <packname>
+║ ➤ .مزج_الايموجي <إيموجي1>+<إيموجي2>
 ║ ➤ .igs <insta link>
 ║ ➤ .igsc <insta link>
 ╚═══════════════════╝  
@@ -105,19 +105,19 @@ async function helpCommand(sock, chatId, message) {
 ╔═══════════════════╗
 🖼️ *أوامر الصور*:
 ║ ➤ .pies <country>
-║ ➤ .china 
-║ ➤ .indonesia 
-║ ➤ .japan 
-║ ➤ .korea 
+║ ➤ .china
+║ ➤ .indonesia
+║ ➤ .japan
+║ ➤ .korea
 ║ ➤ .hijab
 ╚═══════════════════╝
 
 ╔═══════════════════╗
 🎮 *أوامر الألعاب*:
-║ ➤ .tictactoe @user
-║ ➤ .hangman
+║ ➤ .لعبة_اكس_او @مستخدم
+║ ➤ .المشنقة
 ║ ➤ .guess <letter>
-║ ➤ .trivia
+║ ➤ .معلومات
 ║ ➤ .answer <answer>
 ║ ➤ .truth
 ║ ➤ .dare
@@ -125,18 +125,18 @@ async function helpCommand(sock, chatId, message) {
 
 ╔═══════════════════╗
 🤖 *أوامر الذكاء الاصطناعي*:
-║ ➤ .gpt <question>
+║ ➤ .ذكاء_اصطناعي <السؤال>
 ║ ➤ .gemini <question>
-║ ➤ .imagine <prompt>
+║ ➤ .تخيل <الوصف>
 ║ ➤ .flux <prompt>
 ║ ➤ .sora <prompt>
 ╚═══════════════════╝
 
 ╔═══════════════════╗
 🎯 *أوامر الترفيه*:
-║ ➤ .compliment @user
-║ ➤ .insult @user
-║ ➤ .flirt 
+║ ➤ .إطراء @مستخدم
+║ ➤ .إهانة @مستخدم
+║ ➤ .flirt
 ║ ➤ .shayari
 ║ ➤ .goodnight
 ║ ➤ .roseday
@@ -149,7 +149,7 @@ async function helpCommand(sock, chatId, message) {
 
 ╔═══════════════════╗
 🔤 *أوامر إنشاء النصوص*:
-║ ➤ .metallic <text>
+║ ➤ .تصميم_نصي <النص>
 ║ ➤ .ice <text>
 ║ ➤ .snow <text>
 ║ ➤ .impressive <text>
@@ -171,52 +171,52 @@ async function helpCommand(sock, chatId, message) {
 
 ╔═══════════════════╗
 📥 *أوامر التحميل*:
-║ ➤ .play <song_name>
-║ ➤ .song <song_name>
-║ ➤ .spotify <query>
-║ ➤ .instagram <link>
-║ ➤ .facebook <link>
-║ ➤ .tiktok <link>
-║ ➤ .video <song name>
-║ ➤ .ytmp4 <Link>
+║ ➤ .تحميل <اسم_الأغنية>
+║ ➤ .اغنية <اسم_الأغنية>
+║ ➤ .سبوتيفاي <البحث>
+║ ➤ .انستجرام <الرابط>
+║ ➤ .فيسبوك <الرابط>
+║ ➤ .تيك_توك <الرابط>
+║ ➤ .فيديو <اسم الأغنية>
+║ ➤ .ytmp4 <الرابط>
 ╚═══════════════════╝
 
 ╔═══════════════════╗
 🧩 *أوامر متنوعة*:
-║ ➤ .heart
+║ ➤ .قلب
 ║ ➤ .horny
 ║ ➤ .circle
 ║ ➤ .lgbt
 ║ ➤ .lolice
 ║ ➤ .its-so-stupid
-║ ➤ .namecard 
+║ ➤ .namecard
 ║ ➤ .oogway
 ║ ➤ .tweet
-║ ➤ .ytcomment 
-║ ➤ .comrade 
-║ ➤ .gay 
-║ ➤ .glass 
-║ ➤ .jail 
-║ ➤ .passed 
+║ ➤ .ytcomment
+║ ➤ .comrade
+║ ➤ .gay
+║ ➤ .glass
+║ ➤ .jail
+║ ➤ .passed
 ║ ➤ .triggered
 ╚═══════════════════╝
 
 ╔═══════════════════╗
 🖼️ *أوامر الأنمي*:
-║ ➤ .nom 
-║ ➤ .poke 
-║ ➤ .cry 
-║ ➤ .kiss 
-║ ➤ .pat 
-║ ➤ .hug 
-║ ➤ .wink 
-║ ➤ .facepalm 
+║ ➤ .أنمي
+║ ➤ .poke
+║ ➤ .cry
+║ ➤ .kiss
+║ ➤ .pat
+║ ➤ .hug
+║ ➤ .wink
+║ ➤ .facepalm
 ╚═══════════════════╝
 
 ╔═══════════════════╗
 💻 *أوامر GitHub:*
 ║ ➤ .git
-║ ➤ .github
+║ ➤ .جيثب
 ║ ➤ .sc
 ║ ➤ .script
 ║ ➤ .repo
