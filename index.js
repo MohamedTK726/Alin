@@ -89,6 +89,20 @@ const question = (text) => {
     }
 }
 
+let reconnectPromise = null;
+
+function scheduleReconnect() {
+    if (reconnectPromise) return reconnectPromise;
+
+    reconnectPromise = (async () => {
+        await delay(5000)
+        await startXeonBotInc()
+    })().finally(() => {
+        reconnectPromise = null
+    });
+
+    return reconnectPromise;
+}
 
 async function startXeonBotInc() {
     try {
@@ -308,8 +322,7 @@ async function startXeonBotInc() {
             
             if (shouldReconnect) {
                 console.log(chalk.yellow('جارٍ إعادة الاتصال...'))
-                await delay(5000)
-                startXeonBotInc()
+                await scheduleReconnect()
             }
         }
     })
@@ -374,8 +387,7 @@ async function startXeonBotInc() {
     return XeonBotInc
     } catch (error) {
         console.error('Error in startXeonBotInc:', error)
-        await delay(5000)
-        startXeonBotInc()
+        await scheduleReconnect()
     }
 }
 
