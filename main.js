@@ -162,6 +162,98 @@ const channelInfo = {
     }
 };
 
+const arabicCommandAliases = {
+    '.مساعدة': '.help',
+    '.قائمة': '.menu',
+    '.بنج': '.ping',
+    '.حي': '.alive',
+    '.صوت': '.tts',
+    '.المالك': '.owner',
+    '.نكتة': '.joke',
+    '.اقتباس': '.quote',
+    '.حقيقة': '.fact',
+    '.طقس': '.weather',
+    '.أخبار': '.news',
+    '.كلمات': '.lyrics',
+    '.معلومات_المجموعة': '.groupinfo',
+    '.المشرفون': '.staff',
+    '.ترجمة': '.trt',
+    '.لقطة': '.ss',
+    '.معرف': '.jid',
+    '.رابط': '.url',
+    '.حظر': '.ban',
+    '.الغاء_الحظر': '.unban',
+    '.ترقية': '.promote',
+    '.خفض': '.demote',
+    '.كتم': '.mute',
+    '.الغاء_الكتم': '.unmute',
+    '.حذف': '.delete',
+    '.طرد': '.kick',
+    '.التحذيرات': '.warnings',
+    '.تحذير': '.warn',
+    '.منع_الروابط': '.antilink',
+    '.منع_الكلمات': '.antibadword',
+    '.مسح': '.clear',
+    '.اشارة_للجميع': '.tagall',
+    '.اشارة_لغير_المشرفين': '.tagnotadmin',
+    '.اشارة_مخفية': '.hidetag',
+    '.روبوت_الدردشة': '.chatbot',
+    '.اعادة_الرابط': '.resetlink',
+    '.منع_الاشارة': '.antitag',
+    '.ترحيب': '.welcome',
+    '.وداع': '.goodbye',
+    '.وصف_المجموعة': '.setgdesc',
+    '.اسم_المجموعة': '.setgname',
+    '.صورة_المجموعة': '.setgpp',
+    '.الوضع': '.mode',
+    '.مسح_الجلسة': '.clearsession',
+    '.منع_الحذف': '.antidelete',
+    '.مسح_المؤقت': '.cleartmp',
+    '.تحديث': '.update',
+    '.الاعدادات': '.settings',
+    '.الصورة_الشخصية': '.setpp',
+    '.تفاعل_تلقائي': '.autoreact',
+    '.حالة_تلقائية': '.autostatus',
+    '.كتابة_تلقائية': '.autotyping',
+    '.قراءة_تلقائية': '.autoread',
+    '.منع_المكالمات': '.anticall',
+    '.حظر_الخاص': '.pmblocker',
+    '.تحويل_ملصق': '.simage',
+    '.ملصق': '.sticker',
+    '.ازالة_الخلفية': '.removebg',
+    '.تحسين': '.remini',
+    '.قص': '.crop',
+    '.ملصق_تيليجرام': '.tgsticker',
+    '.ميم': '.meme',
+    '.مزج_الايموجي': '.emojimix',
+    '.انستجرام': '.instagram',
+    '.فيسبوك': '.facebook',
+    '.تيك_توك': '.tiktok',
+    '.فيديو': '.video',
+    '.تحميل': '.play',
+    '.اغنية': '.song',
+    '.سبوتيفاي': '.spotify',
+    '.لعبة_اكس_او': '.tictactoe',
+    '.المشنقة': '.hangman',
+    '.معلومات': '.trivia',
+    '.صراحة': '.truth',
+    '.جرأة': '.dare',
+    '.ذكاء_اصطناعي': '.gpt',
+    '.تخيل': '.imagine',
+    '.إطراء': '.compliment',
+    '.إهانة': '.insult',
+    '.تصميم_نصي': '.metallic',
+    '.قلب': '.heart',
+    '.أنمي': '.nom',
+    '.جيثب': '.github'
+};
+
+function normalizeCommandAlias(userMessage) {
+    const match = userMessage.match(/^(\S+)/);
+    const alias = match && arabicCommandAliases[match[1]];
+    return alias ? `${alias}${userMessage.slice(match[1].length)}` : userMessage;
+}
+
 async function handleMessages(sock, messageUpdate, printLog) {
     try {
         const { messages, type } = messageUpdate;
@@ -212,7 +304,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
             }
         }
 
-        const userMessage = (
+        let userMessage = (
             message.message?.conversation?.trim() ||
             message.message?.extendedTextMessage?.text?.trim() ||
             message.message?.imageMessage?.caption?.trim() ||
@@ -220,6 +312,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
             message.message?.buttonsResponseMessage?.selectedButtonId?.trim() ||
             ''
         ).toLowerCase().replace(/\.\s+/g, '.').trim();
+        userMessage = normalizeCommandAlias(userMessage);
 
         // Preserve raw message for commands like .tag that need original casing
         const rawText = message.message?.conversation?.trim() ||
